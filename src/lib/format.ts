@@ -1,4 +1,4 @@
-import type { PriceValue } from '../types/api.ts'
+import type { OrderStatus, PriceValue } from '../types/api.ts'
 
 const currencyFormatter = new Intl.NumberFormat('en-IT', {
   style: 'currency',
@@ -37,4 +37,12 @@ export function formatRefreshDateTime(value: string | null) {
   }
 
   return dateTimeWithSecondsFormatter.format(new Date(value))
+}
+
+export function formatOrderStatus(status: OrderStatus) {
+  return status
+    .toLowerCase()
+    .split('_')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
 }

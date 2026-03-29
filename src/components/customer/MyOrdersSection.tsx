@@ -12,7 +12,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import { formatDateTime, formatPrice, formatRefreshDateTime } from '../../lib/format.ts'
+import { formatDateTime, formatOrderStatus, formatPrice, formatRefreshDateTime } from '../../lib/format.ts'
 import type { OrderResponse, OrderStatus } from '../../types/api.ts'
 
 function getStatusColor(status: OrderStatus) {
@@ -99,7 +99,7 @@ export function MyOrdersSection({
                             Created: {formatDateTime(order.createdAt)}
                           </Typography>
                         </Box>
-                        <Chip label={order.status} color={getStatusColor(order.status)} />
+                        <Chip label={formatOrderStatus(order.status)} color={getStatusColor(order.status)} />
                       </Stack>
 
                       <Stack spacing={1}>

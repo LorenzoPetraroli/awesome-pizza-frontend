@@ -37,3 +37,9 @@ export type OrderResponse = {
   updatedAt: string
   completedAt: string | null
 }
+
+export type KitchenSummaryResponse = {
+  currentOrder: OrderResponse | null
+  queuedOrders: OrderResponse[]
+  readyOrders: OrderResponse[]
+}

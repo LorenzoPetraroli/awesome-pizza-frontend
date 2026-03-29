@@ -2,7 +2,7 @@ import LocalPizzaRoundedIcon from '@mui/icons-material/LocalPizzaRounded'
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded'
 import SoupKitchenRoundedIcon from '@mui/icons-material/SoupKitchenRounded'
 import { AppBar, Box, Button, Container, Stack, Toolbar, Typography } from '@mui/material'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 type AppShellProps = {
   children: React.ReactNode
@@ -15,6 +15,8 @@ const navItems = [
 ]
 
 export function AppShell({ children }: AppShellProps) {
+  const location = useLocation()
+
   return (
     <Box className="app-shell">
       <AppBar position="sticky">
@@ -42,9 +44,7 @@ export function AppShell({ children }: AppShellProps) {
                   to={item.to}
                   color="inherit"
                   startIcon={item.icon}
-                  className={({ isActive }: { isActive: boolean }) =>
-                    isActive ? 'nav-button nav-button-active' : 'nav-button'
-                  }
+                  className={location.pathname === item.to ? 'nav-button nav-button-active' : 'nav-button'}
                 >
                   {item.label}
                 </Button>
