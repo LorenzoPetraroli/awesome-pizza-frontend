@@ -82,7 +82,6 @@ export function AppShell({ children }: AppShellProps) {
             sx={{ justifyContent: 'flex-end' }}
           >
             <Box
-              className="brand-copy"
               sx={{
                 display: 'grid',
                 gap: 0.15,
