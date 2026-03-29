@@ -79,10 +79,20 @@ export function KitchenOrdersSection({
             justifyContent="space-between"
             alignItems={{ xs: 'flex-start', md: 'center' }}
           >
-            <Stack spacing={0.5}>
-              <Typography variant="h4">Kitchen orders</Typography>
-              <Typography color="text.secondary">
-                Follow the live queue, take one order in preparation, then move it to ready and completed.
+            <Stack spacing={1.25}>
+              <Typography variant="overline" color="primary.light">
+                Kitchen area
+              </Typography>
+              <Typography
+                variant="h3"
+                maxWidth="15ch"
+                sx={{ fontSize: { xs: '1.9rem', sm: '2.2rem', md: undefined } }}
+              >
+                Run the live queue and move one order at a time.
+              </Typography>
+              <Typography color="text.secondary" maxWidth="68ch">
+                Follow the backend summary, take one order in preparation,
+                then move it to ready and complete it manually.
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Last updated: {formatRefreshDateTime(lastUpdatedAt)}

@@ -4,10 +4,17 @@
 }
 
 .topbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 80px;
+  gap: 1.5rem;
+  min-height: 88px;
+  padding-inline: 0.25rem;
+}
+
+.topbar-brand {
+  min-width: 0;
+}
+
+.topbar-nav-mobile {
+  min-width: 0;
 }
 
 .brand-mark {
@@ -21,6 +28,29 @@
   box-shadow: 0 12px 28px rgba(220, 38, 38, 0.28);
 }
 
+.brand-mark-button {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease,
+    background-color 160ms ease;
+}
+
+.brand-mark-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(220, 38, 38, 0.34);
+  filter: brightness(1.04);
+}
+
+.brand-mark-button:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.45);
+  outline-offset: 3px;
+}
+
+.brand-subtitle {
+  white-space: nowrap;
+}
+
 .page-content {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -28,12 +58,14 @@
 
 .nav-links {
   flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 .nav-button {
   color: inherit;
   opacity: 0.84;
   border: 1px solid transparent;
+  padding-inline: 0.9rem;
 }
 
 .nav-button-active {
@@ -85,9 +117,28 @@
   line-height: 1.08;
 }
 
+.hero-title-balanced {
+  max-width: 15ch;
+  margin: 0.45rem 0 0.85rem;
+  line-height: 1.08;
+}
+
 .hero-text {
   max-width: 50ch;
   margin-bottom: 0;
+}
+
+.hero-text-block {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+.hero-lead {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.3;
+  color: #fafaf9;
 }
 
 .feature-card {
@@ -110,8 +161,7 @@
   margin-bottom: 1rem;
 }
 
-.inline-action,
-.back-link {
+.inline-action {
   align-self: flex-start;
 }
 
@@ -131,14 +181,13 @@
 
 @media (max-width: 600px) {
   .topbar {
-    align-items: flex-start;
-    flex-direction: column;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    min-height: 76px;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
   }
 
-  .nav-links {
-    width: 100%;
+  .brand-subtitle {
+    display: none;
   }
 
   .page-content {
@@ -155,5 +204,13 @@
 
   .hero-title-compact {
     margin-top: 0.5rem;
+    font-size: clamp(2.1rem, 9vw, 2.85rem);
+    line-height: 1.12;
   }
+
+  .hero-title-balanced {
+    max-width: 100%;
+    line-height: 1.12;
+  }
+
 }

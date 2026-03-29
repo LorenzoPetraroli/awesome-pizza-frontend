@@ -17,8 +17,12 @@ export function CustomerTabLayout({ activeTab, trackedOrdersCount, onChange }: C
             <Typography variant="overline" color="primary.light">
               Customer area
             </Typography>
-            <Typography variant="h3">
-              Build the order, review it live, then track the status by code.
+            <Typography
+              variant="h3"
+              maxWidth="16ch"
+              sx={{ fontSize: { xs: '1.9rem', sm: '2.2rem', md: undefined } }}
+            >
+              Build an order, review it live, and track it by code.
             </Typography>
             <Typography color="text.secondary" maxWidth="68ch">
               Select pizzas from the live backend menu, set the quantity for each item,

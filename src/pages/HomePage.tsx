@@ -32,14 +32,18 @@ export function HomePage() {
           <CardContent className="hero-layout hero-layout-simple">
             <Box className="hero-copy">
               <Typography variant="overline" color="primary.light">
-                Awesome Pizza portal
+                Portal overview
               </Typography>
-              <Typography variant="h1" className="hero-title hero-title-compact">
-                Order pizza and manage the kitchen from one clean portal.
+              <Typography
+                variant="h3"
+                className="hero-title hero-title-balanced"
+                sx={{ fontSize: { xs: '1.95rem', sm: '2.3rem', md: undefined } }}
+              >
+                Choose the customer flow or jump straight into the kitchen queue.
               </Typography>
-              <Typography variant="h6" color="text.secondary" className="hero-text">
-                A simple frontend for two users: customers place and track
-                orders, while the pizzaiolo manages the operational queue.
+              <Typography color="text.secondary" className="hero-text">
+                Use the customer area to create and track orders from this browser,
+                or open the kitchen area to manage the live operational queue.
               </Typography>
             </Box>
           </CardContent>

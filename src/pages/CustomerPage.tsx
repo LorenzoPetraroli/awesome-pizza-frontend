@@ -1,7 +1,5 @@
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded'
-import { Button, Stack, useMediaQuery, useTheme } from '@mui/material'
+import { Stack, useMediaQuery, useTheme } from '@mui/material'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { CurrentOrderSummary } from '../components/customer/CurrentOrderSummary.tsx'
 import { CustomerMenuSection } from '../components/customer/CustomerMenuSection.tsx'
 import { CustomerPageAlerts } from '../components/customer/CustomerPageAlerts.tsx'
@@ -117,17 +115,6 @@ export function CustomerPage() {
           pb: { xs: activeTab === 'new-order' && !isDesktop && selectedItems.length > 0 ? 12 : 3, md: 4 },
         }}
       >
-        <Button
-          component={Link}
-          to="/"
-          variant="text"
-          color="secondary"
-          startIcon={<ArrowBackRoundedIcon />}
-          className="back-link"
-        >
-          Back to home
-        </Button>
-
         <CustomerTabLayout
           activeTab={activeTab}
           trackedOrdersCount={trackedOrders.length}

@@ -69,11 +69,13 @@ export function NewOrderTabContent({
         anchor="bottom"
         open={!isDesktop && isMobileSummaryOpen}
         onClose={onCloseMobileSummary}
-        PaperProps={{
-          sx: {
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            p: 2,
+        slotProps={{
+          paper: {
+            sx: {
+              borderTopLeftRadius: 24,
+              borderTopRightRadius: 24,
+              p: 2,
+            },
           },
         }}
       >
