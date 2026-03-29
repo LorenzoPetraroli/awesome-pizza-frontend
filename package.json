@@ -10,7 +10,11 @@
     "build": "yarn typecheck && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "check": "yarn lint && yarn typecheck"
+    "check": "yarn lint && yarn typecheck",
+    "docker:build": "docker compose -f docker/docker-compose.yml build",
+    "docker:up": "docker compose -f docker/docker-compose.yml up --build -d",
+    "docker:down": "docker compose -f docker/docker-compose.yml down",
+    "docker:logs": "docker compose -f docker/docker-compose.yml logs -f"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
