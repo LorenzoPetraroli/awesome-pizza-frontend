@@ -3,7 +3,8 @@ import { Box, Button, Card, CardContent, Drawer, Grid, Stack } from '@mui/materi
 import type { ReactNode } from 'react'
 
 type NewOrderTabContentProps = {
-  isDesktop: boolean
+  isStickySummary: boolean
+  isCompactMobile: boolean
   hasSelectedItems: boolean
   selectedItemCount: number
   estimatedTotalLabel: string
@@ -15,7 +16,8 @@ type NewOrderTabContentProps = {
 }
 
 export function NewOrderTabContent({
-  isDesktop,
+  isStickySummary,
+  isCompactMobile,
   hasSelectedItems,
   selectedItemCount,
   estimatedTotalLabel,
@@ -30,7 +32,7 @@ export function NewOrderTabContent({
       <Grid container spacing={3} alignItems="flex-start">
         <Grid size={{ xs: 12, lg: 7.5 }}>{menuContent}</Grid>
 
-        {isDesktop ? (
+        {isStickySummary ? (
           <Grid size={{ xs: 12, lg: 4.5 }}>
             <Stack spacing={3} sx={{ position: 'sticky', top: 104 }}>
               <Card>
@@ -38,10 +40,16 @@ export function NewOrderTabContent({
               </Card>
             </Stack>
           </Grid>
+        ) : !isCompactMobile ? (
+          <Grid size={{ xs: 12 }}>
+            <Card>
+              <CardContent sx={{ p: { xs: 2, md: 3 } }}>{summaryContent}</CardContent>
+            </Card>
+          </Grid>
         ) : null}
       </Grid>
 
-      {!isDesktop && hasSelectedItems ? (
+      {isCompactMobile && hasSelectedItems ? (
         <Box
           sx={{
             position: 'fixed',
@@ -67,7 +75,7 @@ export function NewOrderTabContent({
 
       <Drawer
         anchor="bottom"
-        open={!isDesktop && isMobileSummaryOpen}
+        open={isCompactMobile && isMobileSummaryOpen}
         onClose={onCloseMobileSummary}
         slotProps={{
           paper: {

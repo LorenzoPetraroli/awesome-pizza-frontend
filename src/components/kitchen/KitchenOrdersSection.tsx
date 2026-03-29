@@ -139,11 +139,8 @@ export function KitchenOrdersSection({
           ) : (
             <Stack divider={<Divider flexItem />}>
               {orders.map((order) => {
-                const isCurrentOrder = currentOrderCode === order.code
-                const isAnotherOrderInPreparation = Boolean(currentOrderCode) && !isCurrentOrder
                 const isPending = pendingOrderCode === order.code
                 const actionLabel = getActionLabel(order.status)
-                const disableAction = isPending || (order.status === 'PLACED' && isAnotherOrderInPreparation)
 
                 return (
                   <Box
@@ -184,7 +181,7 @@ export function KitchenOrdersSection({
                                   break
                               }
                             }}
-                            disabled={disableAction}
+                            disabled={isPending}
                           >
                             {isPending ? 'Updating...' : actionLabel}
                           </Button>
@@ -224,9 +221,7 @@ export function KitchenOrdersSection({
                         alignItems={{ xs: 'flex-start', md: 'center' }}
                       >
                         <Typography variant="body2" color="text.secondary">
-                          {order.status === 'PLACED' && isAnotherOrderInPreparation
-                            ? 'Another order is already in preparation. Complete it before starting this one.'
-                            : 'Advance the order manually when the kitchen reaches the next step.'}
+                          Advance the order manually when the kitchen reaches the next step.
                         </Typography>
                         <Typography variant="h6">{formatPrice(order.totalPrice)}</Typography>
                       </Stack>

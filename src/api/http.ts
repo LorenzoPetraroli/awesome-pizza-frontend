@@ -27,13 +27,16 @@ export async function apiRequest<T>(path: string, init?: RequestInit): Promise<T
 
   if (!response.ok) {
     const fallbackMessage = `Request failed with status ${response.status}`
+    let errorMessage = fallbackMessage
 
     try {
       const errorPayload = (await response.json()) as { message?: string }
-      throw new ApiError(errorPayload.message ?? fallbackMessage, response.status)
+      errorMessage = errorPayload.message ?? fallbackMessage
     } catch {
-      throw new ApiError(fallbackMessage, response.status)
+      errorMessage = fallbackMessage
     }
+
+    throw new ApiError(errorMessage, response.status)
   }
 
   if (response.status === 204) {

@@ -26,7 +26,8 @@ export function CustomerPage() {
   } = useTrackedOrders()
 
   const theme = useTheme()
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'))
+  const isStickySummary = useMediaQuery(theme.breakpoints.up('lg'))
+  const isCompactMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
   const [activeTab, setActiveTab] = useState<CustomerTab>('new-order')
   const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false)
@@ -59,7 +60,8 @@ export function CustomerPage() {
       case 'new-order':
         return (
           <NewOrderTabContent
-            isDesktop={isDesktop}
+            isStickySummary={isStickySummary}
+            isCompactMobile={isCompactMobile}
             hasSelectedItems={selectedItems.length > 0}
             selectedItemCount={selectedItemCount}
             estimatedTotalLabel={formatPrice(estimatedTotal)}
@@ -80,7 +82,7 @@ export function CustomerPage() {
                 customerName={customerName}
                 selectedItems={selectedItems}
                 estimatedTotal={estimatedTotal}
-                isDesktop={isDesktop}
+                isDesktop={isStickySummary}
                 isSubmitting={isSubmitting}
                 isLoadingMenu={isLoadingMenu}
                 onCustomerNameChange={setCustomerName}
@@ -112,7 +114,7 @@ export function CustomerPage() {
         spacing={4}
         sx={{
           pt: { xs: 2, md: 3 },
-          pb: { xs: activeTab === 'new-order' && !isDesktop && selectedItems.length > 0 ? 12 : 3, md: 4 },
+          pb: { xs: activeTab === 'new-order' && isCompactMobile && selectedItems.length > 0 ? 12 : 3, md: 4 },
         }}
       >
         <CustomerTabLayout
