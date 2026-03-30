@@ -1,0 +1,11 @@
+services:
+  awesome-pizza-frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8081}
+    container_name: awesome-pizza-frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
