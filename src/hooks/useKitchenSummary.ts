@@ -84,7 +84,6 @@ export function useKitchenSummary() {
   }, [summary])
 
   return {
-    currentOrderCode: summary?.currentOrder?.code ?? null,
     orders,
     isLoading,
     error,

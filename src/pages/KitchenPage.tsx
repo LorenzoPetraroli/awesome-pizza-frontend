@@ -5,7 +5,6 @@ import { useKitchenSummary } from '../hooks/useKitchenSummary.ts'
 
 export function KitchenPage() {
   const {
-    currentOrderCode,
     orders,
     isLoading,
     error,
@@ -24,7 +23,6 @@ export function KitchenPage() {
       <Stack spacing={4} sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 3, md: 4 } }}>
         <KitchenOrdersSection
           orders={orders}
-          currentOrderCode={currentOrderCode}
           isLoading={isLoading}
           error={error}
           actionError={actionError}

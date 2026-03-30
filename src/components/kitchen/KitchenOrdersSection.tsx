@@ -16,7 +16,6 @@ import type { OrderResponse, OrderStatus } from '../../types/api.ts'
 
 type KitchenOrdersSectionProps = {
   orders: OrderResponse[]
-  currentOrderCode: string | null
   isLoading: boolean
   error: string | null
   actionError: string | null
@@ -55,7 +54,6 @@ function getActionLabel(status: OrderStatus) {
 
 export function KitchenOrdersSection({
   orders,
-  currentOrderCode,
   isLoading,
   error,
   actionError,
